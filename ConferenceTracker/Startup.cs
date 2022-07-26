@@ -71,7 +71,7 @@ namespace ConferenceTracker
 
             app.UseStaticFiles();
 
-            app.UseCookiePolicy()
+            app.UseCookiePolicy();
             app.UseRouting();
 
             app.UseAuthentication();
