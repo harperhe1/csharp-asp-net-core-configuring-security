@@ -66,9 +66,12 @@ namespace ConferenceTracker
             using (var context = scope.ServiceProvider.GetService<ApplicationDbContext>())
                 context.Database.EnsureCreated();
 
+            app.UseCors(_allowedOrigins);
+            app.UseHttpsRedirection();
+
             app.UseStaticFiles();
 
-            app.UseCookiePolicy();
+            app.UseCookiePolicy()
             app.UseRouting();
 
             app.UseAuthentication();
@@ -81,9 +84,6 @@ namespace ConferenceTracker
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
             });
-
-            app.UseCors(_allowedOrigins);
-            app.UseHttpsRedirection();
         }
     }
 }
