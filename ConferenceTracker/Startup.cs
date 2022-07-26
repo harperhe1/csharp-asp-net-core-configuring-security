@@ -68,7 +68,6 @@ namespace ConferenceTracker
 
             app.UseCors(_allowedOrigins);
             app.UseHttpsRedirection();
-
             app.UseStaticFiles();
 
             app.UseCookiePolicy();
